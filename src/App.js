@@ -12,6 +12,16 @@ class App extends Component {
     showPersons: true,
   };
 
+  nameChangedHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex((person) => {
+      return person.id === id;
+    });
+
+    const persons = [...this.state.persons];
+    persons[personIndex].name = event.target.value;
+    this.setState({persons: persons});
+  };
+
   togglePersonsHandler = () => {
     const isShowing = this.state.showPersons;
     this.setState({ showPersons: !isShowing });
@@ -22,7 +32,7 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
-  }
+  };
 
   render() {
     const style = {
@@ -46,7 +56,8 @@ class App extends Component {
             name={person.name}
             age={person.age}
             hobbies={person.hobbies}
-            key={person.id}/>
+            key={person.id}
+            changed={(event) => this.nameChangedHandler(event, person.id)}/>
           })}
         </div>
       )
