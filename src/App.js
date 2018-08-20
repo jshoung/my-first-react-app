@@ -36,7 +36,7 @@ class App extends Component {
 
   render() {
     let persons = null;
-    // let btnClass = '';
+    let btnClass = '';
 
     // Preferred method to output conditional content!
     if (this.state.showPersons) {
@@ -55,7 +55,7 @@ class App extends Component {
         </div>
       );
 
-      // btnClass = classes.Red;
+      btnClass = classes.Red;
     }
 
     let assignedClasses = [];
@@ -74,11 +74,12 @@ class App extends Component {
         <h1>Hi, I'm a React App!</h1>
         <p className={assignedClasses.join(' ')}>This is working!</p>
         <button
+          className={btnClass}
           onClick={() => this.togglePersonsHandler()}>
           Toggle Persons
         </button>
         {persons}
-      </div>
+      </div >
     );
   };
 }
