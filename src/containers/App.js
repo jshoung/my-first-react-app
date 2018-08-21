@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/Person';
+import Person from '../Persons/Person/Person';
 
 class App extends Component {
   state = {
@@ -34,6 +34,7 @@ class App extends Component {
     this.setState({ persons: persons });
   };
 
+  // Render method should be lean and concise
   render() {
     let persons = null;
     let btnClass = '';
